@@ -21,7 +21,7 @@ pipeline {
         }
         stage('Run API Postman Collection Test Cases') {
             steps {
-                sh 'newman run ./SampleCollection.json  -e ./SampleEnv.json -n 1 -r htmlextra,cli --reporter-htmlextra-export ./results/booking_report.html'
+                sh 'newman run ./SampleCollection.json  -e ./SampleEnv.json -n 1 -r htmlextra,cli --reporter-htmlextra-export ./results/SampleReport.html'
             }
         }
         stage('Publish HTML Extra Report'){
@@ -30,7 +30,7 @@ pipeline {
                                   alwaysLinkToLastBuild: false, 
                                   keepAll: true, 
                                   reportDir: 'results', 
-                                  reportFiles: 'booking_report.html', 
+                                  reportFiles: 'SampleReport.html', 
                                   reportName: 'HTML Extra API Report', 
                                   reportTitles: ''])
             }
