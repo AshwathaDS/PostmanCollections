@@ -21,7 +21,7 @@ pipeline {
         }
         stage('Run API Postman Collection Test Cases') {
             steps {
-                sh 'newman run ./SampleCollection.json  -e ./SampleEnv.json -n 1 -r htmlextra,cli --reporter-htmlextra-export ./results/SampleReport.html'
+                bat 'newman run ./SampleCollection.json  -e ./SampleEnv.json -n 1 -r htmlextra,cli --reporter-htmlextra-export ./results/SampleReport.html'
             }
         }
         stage('Publish HTML Extra Report'){
